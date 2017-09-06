@@ -1,0 +1,1 @@
+Higher order function for rate-limiting functions that return promises.
