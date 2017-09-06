@@ -1,9 +1,14 @@
 {
   "name": "spjaeld",
-  "descript": "Higher order function for rate-limiting functions that return promises.",
+  "descript":
+    "Higher order function for rate-limiting functions that return promises.",
   "version": "0.0.1",
   "main": "src/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klarstrup/spjaeld.git"
+  },
   "scripts": {
     "test": "jest --watch --coverage"
   },
