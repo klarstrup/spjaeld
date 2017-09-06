@@ -11,12 +11,13 @@ const processQueue = (fun, { context, parameters, resolver, rejecter }) => {
   }
 };
 
-const rateLimit = (fun, delay=300) => {
-  let queue = [],
-    timer = null;
+const rateLimitFn = (fun, delay = 300) => {
+  const queue = [];
+  let timer = null;
 
-  return function(...parameters) {
-    let resolver, rejecter;
+  return function rateLimitedFn(...parameters) {
+    let resolver;
+    let rejecter;
     const invocationPromise = new Promise((resolve, reject) => {
       resolver = resolve;
       rejecter = reject;
@@ -36,4 +37,4 @@ const rateLimit = (fun, delay=300) => {
   };
 };
 
-export default rateLimit;
+export default rateLimitFn;
