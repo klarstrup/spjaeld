@@ -1,25 +1,36 @@
 {
   "name": "spjaeld",
   "descript": "Higher order function for rate-limiting functions that return promises.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "src/index.js",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/klarstrup/spjaeld.git"
   },
   "scripts": {
-    "test": "jest --watch --coverage"
+    "test": "jest --watch --coverage",
+    "build": "rollup --config"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-modern-browsers": "^9.0.2",
     "eslint": "4.3.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-compat": "^1.0.4",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "rollup": "^0.49.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1"
   },
   "devDependencies": {
     "eslint-plugin-import": "2.7.0",
