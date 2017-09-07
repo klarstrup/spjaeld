@@ -14,7 +14,7 @@
     "test": "jest --watch --coverage",
     "build": "rollup --config"
   },
-  "dependencies": {
+  "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -29,9 +29,7 @@
     "rollup": "^0.49.2",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1"
-  },
-  "devDependencies": {
+    "rollup-plugin-uglify": "^2.0.1",
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.1.0"
