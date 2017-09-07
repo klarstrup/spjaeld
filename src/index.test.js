@@ -11,7 +11,7 @@ const mockFn = jest.fn(val => {
   return val;
 });
 
-it('works with promises', async () => {
+it('works with regular fun', async () => {
   const limitedFn = spjaeld(mockFn, 400);
 
   expect.assertions(3);
@@ -27,6 +27,25 @@ it('works with promises', async () => {
 
 it('rejects on individual exceptions', async () => {
   const limitedFn = spjaeld(mockFn);
+  expect.assertions(3);
+  const dock = limitedFn('dock');
+  const lock = limitedFn('lock');
+  const mock = limitedFn('mock');
+  expect(dock).resolves.toEqual('dock');
+  expect(lock).rejects.toEqual(new Error('lock'));
+  expect(mock).resolves.toEqual('mock');
+  jest.runAllTimers();
+});
+
+const mockPromFn = jest.fn(val => new Promise((resolve, reject)=>{
+  if (val === 'lock') {
+    reject(new Error('lock'));
+  }
+  resolve(val);
+}));
+
+it('works with promises', async () => {
+  const limitedFn = spjaeld(mockPromFn);
   expect.assertions(3);
   const dock = limitedFn('dock');
   const lock = limitedFn('lock');
