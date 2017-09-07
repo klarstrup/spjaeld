@@ -76,4 +76,28 @@ export default [
       }),
     ],
   },
+  {
+    input: 'src/index.js',
+    output: {
+      file: 'dist/spjaeld.es.js',
+      format: 'es',
+    },
+    plugins: [
+      resolve(),
+      babel({
+        exclude: 'node_modules/**', // only transpile our source code
+        presets: [
+          [
+            'env',
+            {
+              targets: {
+                node: 'current',
+              },
+              modules: false,
+            },
+          ],
+        ],
+      }),
+    ],
+  },
 ];
