@@ -11,6 +11,7 @@
     "url": "https://github.com/klarstrup/spjaeld.git"
   },
   "scripts": {
+    "test:ci": "jest --ci",
     "test": "jest --watch --coverage",
     "build": "rollup --config",
     "lint": "eslint --fix \"src/\" \"rollup.config.js\""
@@ -19,9 +20,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-jest": "^21.2.0",
-    "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
     "babel-preset-modern-browsers": "^9.0.2",
     "eslint": "^4.5.0",
     "eslint-config-airbnb-base": "^12.0.2",
