@@ -1,7 +1,7 @@
 {
   "name": "spjaeld",
   "descript": "Higher order function for rate-limiting functions that return promises.",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "main": "dist/spjaeld.cjs.js",
   "module": "dist/spjaeld.es.js",
   "jsnext:main": "dist/spjaeld.es.js",
@@ -14,7 +14,8 @@
     "test:ci": "jest --ci",
     "test": "jest --watch --coverage",
     "build": "rollup --config",
-    "lint": "eslint --fix \"src/\" \"rollup.config.js\""
+    "lint": "eslint --fix \"src/\" \"rollup.config.js\"",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
