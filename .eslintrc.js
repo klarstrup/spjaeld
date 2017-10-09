@@ -3,12 +3,11 @@ const baseRules = require('eslint-config-airbnb-base/rules/style');
 const [_, ...restricted] = baseRules.rules['no-restricted-syntax'];
 
 module.exports = {
-  extends: 'airbnb',
+  extends: 'airbnb-base',
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module',
-    jsx: true,
   },
   env: {
     node: true,
@@ -17,7 +16,6 @@ module.exports = {
   plugins: [
     'babel',
     'import',
-    'jsx-a11y',
     'compat',
   ],
   rules: {
