@@ -1,7 +1,7 @@
 {
   "name": "spjaeld",
   "descript": "Higher order function for rate-limiting functions that return promises.",
-  "version": "0.1.0",
+  "version": "0.10.0",
   "main": "dist/spjaeld.cjs.js",
   "module": "dist/spjaeld.es.js",
   "jsnext:main": "dist/spjaeld.es.js",
