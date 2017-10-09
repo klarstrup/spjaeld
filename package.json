@@ -11,7 +11,8 @@
     "url": "https://github.com/klarstrup/spjaeld.git"
   },
   "scripts": {
-    "test": "jest --watch --coverage",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --coverage",
     "build": "rollup --config",
     "lint": "eslint --fix \"src/\" \"rollup.config.js\""
   },
