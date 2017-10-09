@@ -37,7 +37,7 @@ it('rejects on individual exceptions', async () => {
   jest.runAllTimers();
 });
 
-const mockPromFn = jest.fn(val => new Promise((resolve, reject)=>{
+const mockPromFn = jest.fn(val => new Promise((resolve, reject) => {
   if (val === 'lock') {
     reject(new Error('lock'));
   }
