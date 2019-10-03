@@ -1,7 +1,7 @@
 {
   "name": "spjaeld",
   "descript": "Higher order function for rate-limiting functions that return promises.",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "main": "dist/spjaeld.cjs.js",
   "module": "dist/spjaeld.es.js",
   "jsnext:main": "dist/spjaeld.es.js",
@@ -14,24 +14,23 @@
     "test:ci": "jest --ci",
     "test": "jest --watch --coverage",
     "build": "rollup --config",
-    "lint": "eslint --fix \"src/\" \"rollup.config.js\"",
+    "lint": "eslint .",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
-    "babel-jest": "^21.2.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-modern-browsers": "^9.0.2",
-    "eslint": "^4.5.0",
-    "eslint-config-airbnb-base": "^12.0.2",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-compat": "^2.0.1",
-    "eslint-plugin-import": "2.7.0",
-    "jest": "^21.2.1",
-    "rollup": "^0.50.0",
-    "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1"
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-plugin-import": "2.18.2",
+    "jest": "^24.9.0",
+    "rollup": "^1.22.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2"
   }
 }

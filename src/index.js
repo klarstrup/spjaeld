@@ -3,9 +3,7 @@ const callAndSetInterval = (fn, delay) => {
   return setInterval(fn, delay);
 };
 
-const processQueue = (fun, {
-  context, parameters, resolver, rejecter,
-}) => {
+const processQueue = (fun, { context, parameters, resolver, rejecter }) => {
   try {
     resolver(fun.apply(context, parameters));
   } catch (err) {
@@ -16,6 +14,13 @@ const processQueue = (fun, {
 const rateLimitFn = (fun, delay = 300) => {
   const queue = [];
   let timer = null;
+  function doProcessQueue() {
+    if (queue.length) {
+      processQueue(fun, queue.shift());
+    } else {
+      timer = clearInterval(timer);
+    }
+  }
 
   return function rateLimitedFn(...parameters) {
     let resolver;
@@ -24,19 +29,9 @@ const rateLimitFn = (fun, delay = 300) => {
       resolver = resolve;
       rejecter = reject;
     });
-    queue.push({
-      context: this, parameters, resolver, rejecter,
-    });
-    if (!timer) {
-      timer = callAndSetInterval(() => {
-        if (queue.length) {
-          processQueue(fun, queue.shift());
-        } else {
-          clearInterval(timer);
-          timer = null;
-        }
-      }, delay);
-    }
+    queue.push({ context: this, parameters, resolver, rejecter });
+    if (!timer) timer = callAndSetInterval(doProcessQueue, delay);
+
     return invocationPromise;
   };
 };

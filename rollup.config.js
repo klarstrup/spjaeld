@@ -1,25 +1,23 @@
-import resolve from 'rollup-plugin-node-resolve';
-import babel from 'rollup-plugin-babel';
-import uglify from 'rollup-plugin-uglify';
+import resolve from "rollup-plugin-node-resolve";
+import babel from "rollup-plugin-babel";
+import { terser } from "rollup-plugin-terser";
 
 export default [
   {
-    input: 'src/index.js',
-    name: 'spjaeld',
+    input: "src/index.js",
     output: {
-      file: 'dist/spjaeld.umd.js',
-      format: 'umd',
+      name: "spjaeld",
+      file: "dist/spjaeld.umd.js",
+      format: "umd",
     },
     plugins: [
       resolve(),
       babel({
         presets: [
           [
-            'env',
+            "@babel/preset-env",
             {
-              targets: {
-                browsers: ['> 1%'],
-              },
+              targets: { browsers: ["> 1%"] },
               modules: false,
             },
           ],
@@ -28,47 +26,40 @@ export default [
     ],
   },
   {
-    input: 'src/index.js',
-    name: 'spjaeld',
+    input: "src/index.js",
     output: {
-      file: 'dist/spjaeld.umd.min.js',
-      format: 'umd',
+      name: "spjaeld",
+      file: "dist/spjaeld.umd.min.js",
+      format: "umd",
     },
     plugins: [
       resolve(),
       babel({
         presets: [
           [
-            'env',
+            "@babel/preset-env",
             {
-              targets: {
-                browsers: ['> 1%'],
-              },
+              targets: { browsers: ["> 1%"] },
               modules: false,
             },
           ],
         ],
       }),
-      uglify(),
+      terser(),
     ],
   },
   {
-    input: 'src/index.js',
-    output: {
-      file: 'dist/spjaeld.cjs.js',
-      format: 'cjs',
-    },
+    input: "src/index.js",
+    output: { file: "dist/spjaeld.cjs.js", format: "cjs" },
     plugins: [
       resolve(),
       babel({
-        exclude: 'node_modules/**', // only transpile our source code
+        exclude: "node_modules/**", // only transpile our source code
         presets: [
           [
-            'env',
+            "@babel/preset-env",
             {
-              targets: {
-                node: 'current',
-              },
+              targets: { node: "current" },
               modules: false,
             },
           ],
@@ -77,22 +68,17 @@ export default [
     ],
   },
   {
-    input: 'src/index.js',
-    output: {
-      file: 'dist/spjaeld.es.js',
-      format: 'es',
-    },
+    input: "src/index.js",
+    output: { file: "dist/spjaeld.es.js", format: "es" },
     plugins: [
       resolve(),
       babel({
-        exclude: 'node_modules/**', // only transpile our source code
+        exclude: "node_modules/**", // only transpile our source code
         presets: [
           [
-            'env',
+            "@babel/preset-env",
             {
-              targets: {
-                node: 'current',
-              },
+              targets: { node: "current" },
               modules: false,
             },
           ],
